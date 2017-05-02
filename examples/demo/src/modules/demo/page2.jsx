@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import BaseComponent from '../BaseComponent'
+import {BaseComponent} from 'restackx-core'
 import _ from 'lodash'
 import {observer} from 'mobx-react'
 

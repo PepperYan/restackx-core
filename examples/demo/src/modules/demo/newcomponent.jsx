@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import _ from 'lodash'
 import {withRouter} from 'react-router'
 import {BaseComponent} from 'restackx-core'
-import context from '../context'
 import {observer} from 'mobx-react'
 
 @withRouter

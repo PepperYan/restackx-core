@@ -3,7 +3,6 @@ import { render } from 'react-dom'
 import { Router} from 'react-router'
 import routes from './routes'
 import { browserHistory } from 'react-router'
-import Provider from './Provider'
 import Store from './store'
 import {App} from 'restackx-core'
 

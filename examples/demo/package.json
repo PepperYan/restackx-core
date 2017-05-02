@@ -28,7 +28,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router": "^2.4.0",
-    "restackx-core": "file:restackx-core-0.0.1.tgz"
+    "restackx-core": "0.0.3"
   },
   "devDependencies": {
     "ansi-to-html-umd": "^0.4.2",

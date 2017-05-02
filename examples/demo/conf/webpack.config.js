@@ -2,7 +2,6 @@ var path = require('path')
 var webpack = require('webpack');
 var path_node_modules = path.resolve(__dirname, 'node_modules');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var manifest = require('../static-dist/vendor-manifest.json')
 
 module.exports = {
   cache:true,
