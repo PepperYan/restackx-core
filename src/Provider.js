@@ -1,8 +1,7 @@
 import React,{ Component, Children } from 'react'
 import PropTypes from 'prop-types'
 
-
-export default class Provider extends Component {
+export class Provider extends Component {
   static childContextTypes = {
     store : PropTypes.object.isRequired
   }
