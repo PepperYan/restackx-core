@@ -1,6 +1,6 @@
 export {BaseComponent} from './BaseComponent'
 
-export {App} from './app'
+export {App} from './App'
 
 export {handleModels} from './tools'
 
