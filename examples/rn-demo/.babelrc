@@ -1,18 +1,6 @@
 {
-  "presets": ["es2015","stage-0","react"],
+  "presets": ["react-native"],
   "plugins": [
-    "transform-decorators-legacy",
-    "transform-class-properties",
-    "transform-object-rest-spread",
-    "transform-decorators",
-    "transform-runtime",
-    "syntax-async-functions",
-    "transform-regenerator",
-    "transform-object-assign"
-  ],
-  "env": {
-    "development": {
-      "presets": ["react-hmre"]
-    }
-  }
+    "transform-decorators-legacy"
+  ]
 }
