@@ -1,8 +1,62 @@
-# restackx-core/ react-native
+# restackx-core
 
-restackx-core是一个前端快速开发框架，目前支持react-native。
+前端快速开发框架
 
-### 使用说明
+## restackx-core/ react
+
+前端快速开发框架
+
+#### 使用说明
+
+>1. 创建自己的react 工程。[如何搭建 React Application](https://facebook.github.io/react/docs/installation.html)
+>
+>2. 安装依赖：`	mobx, mobx-react` `	restackx-core`。
+>
+>3. 配置入口文件(`	index.js, routes.js, store,js`)。
+>
+
+##### index.js: 
+
+	import React,{Component} from 'react'
+	import { render } from 'react-dom'
+	import { Router} from 'react-router'
+	import routes from './routes'
+	import { browserHistory } from 'react-router'
+	import Store from './store'
+	import {App} from 'restackx-core'
+	const container = document.getElementById('container');
+	render(
+ 	 	<App store={Store} history={browserHistory} routes={routes}/>,
+ 	 	container
+	)
+
+##### routes.js: 
+
+	import React from 'react';
+	import {Route, IndexRoute} from 'react-router'
+	import App from './demo/App';
+	import NewComponent from './demo/newcomponent'
+	import PageTwo from './demo/page2'
+	export default (
+ 	 	<Route path="/" component={App}>
+   	 		<IndexRoute component={NewComponent}/>
+    		<Route path="pagetwo" component={PageTwo}/>
+  		</Route>
+	);
+
+##### store.js: 
+
+	import {observable, computed, reaction} from 'mobx'
+	import {handleModels} from 'restackx-core'
+	const modelContext = require.context('../', true, /.model.js$/)
+	var models = handleModels(modelContext)
+	export default models
+
+## restackx-core/ react-native
+
+restackx-core支持react-native。
+
+#### 使用说明
 
 >1. 创建自己的react-native工程（react-native init app）。[如何搭建RN工程](https://facebook.github.io/react-native/docs/getting-started.html)
 >
