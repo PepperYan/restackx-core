@@ -1,15 +1,15 @@
 import React,{Component} from 'react'
 import { render } from 'react-dom'
-import { Router} from 'react-native-router-flux'
+import { NativeRouter} from 'react-router-native'
 import {Provider} from './Provider'
 
 export class App extends Component{
   render(){
     return (
       <Provider store={this.props.store}>
-        <Router>
+        <NativeRouter>
           {this.props.routes}
-        </Router>
+        </NativeRouter>
       </Provider>
     )
   }
