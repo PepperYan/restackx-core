@@ -6,10 +6,12 @@ import NewComponent from './demo/newcomponent'
 import PageTwo from './demo/page2'
 
 export default (
-  <Route path="/" component={App}>
-    <Switch>
-      <Route exact path="/" component={NewComponent}/>
-      <Route path="pagetwo" component={PageTwo}/>
-    </Switch>
+  <Route path="/">
+    <App>
+      <Switch>
+        <Route exact path="/" component={NewComponent}/>
+        <Route path="pagetwo" component={PageTwo}/>
+      </Switch>
+    </App>
   </Route>
 );
