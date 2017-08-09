@@ -78,11 +78,11 @@ restackx-core提供了路由的入口，导入指定路由可方便我们管理,
 	}
 	
 #### router
-	在restackx-core/react-native中所使用的router：NativeRouter，这是为native提供的react-router-native。
-使用说明请参照[NativeRouter](https://reacttraining.com/react-router/native/api/NativeRouter).
+	在restackx-core/react-native中使用的是NativeRouter，它这是为native提供了相应的路由。
+具体使用说明可参照[NativeRouter](https://reacttraining.com/react-router/native/api/NativeRouter).
 
 #### routes
-在native app中可通过导航进行管理界面，但是route并不存在。想要实现route的功能可使用react-router-native：
+在native app中route并不存在，而是通过导航来管理界面。想要是native实现route的功能可使用react-router-native，routes的具体管理：
 	
 	var route = [
     {
