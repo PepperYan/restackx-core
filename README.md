@@ -1,123 +1,113 @@
 # restackx-core
 
-`Restack core`是一个前端快速开发框架
+前端快速开发框架,可适用与web及react-native。
 
-## restackx-core/ react
+## Web
+#### 快速开始
 
-前端快速开发框架
+[如何快速使用restackx-cli搭建项目](https://github.com/PepperYan/restackx-cli)
 
-#### 使用说明
+```
+cd /项目路径
+npm i 安装依赖
+如果使用restackx-cli搭建项目，只需restackx run运行。
+``` 
+#### store
+1. 自创建store：例如一个model文件（PageModel.js）
+		
+		const store = {
+    		"PageModel":new PageModel()
+		}
+		//使用this.context.store.PageModel得到PageModel;	
+2. 为了store的简单使用，可使用demo中定制的store。restackx-core将自动读取后缀名为"store.js"的文件，通过handleModels会返回store.
 
->1. 创建自己的react 工程。[如何搭建 React Application](https://facebook.github.io/react/docs/installation.html)
->
->2. 安装依赖：`	mobx, mobx-react` `	restackx-core`。
->
->3. 配置入口文件(`	index.js, routes.js, store,js`)。
->
+		import {observable, computed, reaction} from 'mobx'
+		import {handleModels} from 'restackx-core'
+		const modelContext = require.context('../', true, /. store.js$/)
+		var models = handleModels(modelContext)
+		export default models
 
-##### index.js: 
+		
+  			
+#### router
+restackx-core默认使用BrowserRouter,也可更换其它router([react-router-dom的使用](https://reacttraining.com/react-router/web/api/BrowserRouter))。具体替换方法:
 
-	import React,{Component} from 'react'
-	import { render } from 'react-dom'
-	import { Router} from 'react-router'
-	import routes from './routes'
-	import { browserHistory } from 'react-router'
-	import Store from './store'
-	import {App} from 'restackx-core'
-	const container = document.getElementById('container');
-	render(
- 	 	<App store={Store} history={browserHistory} routes={routes}/>,
- 	 	container
-	)
-
-##### routes.js: 
+	<App store={Store} router={BrowserRouter} routes={routes}/>,
+	
+#### routes
+restackx-core提供了路由的入口，导入指定路由可方便我们管理,具体事例：
 
 	import React from 'react';
-	import {Route, IndexRoute} from 'react-router'
-	import App from './demo/App';
-	import NewComponent from './demo/newcomponent'
-	import PageTwo from './demo/page2'
+	import {Route, Switch} from 'react-router-dom'
+	import App from '../modules/demo/App';
+		import Page1 from '../modules/demo/Page1'
+	import PageTwo from '../modules/demo/Page2'
+
 	export default (
- 	 	<Route path="/" component={App}>
-   	 		<IndexRoute component={NewComponent}/>
-    		<Route path="pagetwo" component={PageTwo}/>
-  		</Route>
+    	<Route path="/">
+        	<App>
+            	<Switch>
+                	<Route exact path="/" component={Page1}/>
+                	<Route path="/pagetwo" component={PageTwo}/>
+            	</Switch>
+        	</App>
+    	</Route>
 	);
 
-##### store.js: 
 
-	import {observable, computed, reaction} from 'mobx'
-	import {handleModels} from 'restackx-core'
-	const modelContext = require.context('../', true, /.model.js$/)
-	var models = handleModels(modelContext)
-	export default models
 
-## restackx-core/ react-native
+## react-native
 
-restackx-core支持react-native。
+#### 快速集成
 
-#### 使用说明
+	1. cd 工程根目录创建react-native工程（react-native init app --version 0.44.3）
+	2. npm i restackx-core --save 安装restackx-core
+	3. react-native run-ios
+ 也可在package.json中配置restackx-core依赖，再执行npm install。
 
->1. 创建自己的react-native工程（react-native init app）。[如何搭建RN工程](https://facebook.github.io/react-native/docs/getting-started.html)
->
->2. 安装依赖：`react-native-router-flux	`, `	mobx, mobx-react` `	restackx-core`。
->
->3. 配置入口文件(`	index.js, routes.js, store,js`)。
->
+[如何搭建react-native工程](https://facebook.github.io/react-native/docs/getting-started.html)
 
-##### index.js: 
-
-	import React from 'react'
-	import {Routers} from './routes'
-	import Store from './store'
-	import {App} from "restackx-core/lib/native";
-
-	function setup() {
-        class Root extends React.Component {
-            render(){
-               return (
-                 <App store={Store} routes={Routers()}/>
-               )
-           }
-        }
-        return Root;
-	}
-
-##### routes.js: 
-
-	/*
-	* 添加指定组件路由
-	* */
-	import React from 'react';
-	import {Scene} from 'react-native-router-flux';
-	import LoginPage from './users/LoginPage';
-	export const Routers = () => {
-    return (
-        <Scene overlay>
-            <Scene key="box" leftButtonTextStyle={{color: '#9c28ff'}}
-                   rightButtonTextStyle={{color: '#9c28ff'}}
-                   backButtonTextStyle={{color: '#9c28ff'}} initial>
-                <Scene key="loginModal" component={LoginPage} title="Login"initial/>
-            </Scene>
-        </Scene>
-	    )
-};
-
-##### store.js: 
-
-	import HomePageModel from './models/HomePage.model'
+#### store
+	import HomePageModel from './models/HomePage.model';
+	import MenuBarModel from './models/MenuBar.model';
 	//这里添加所要导入的xxx.model.js
-
-	export default {
+	const store = {
     	"HomePage" : new HomePageModel(),
+    	"MenuBarModel" : new MenuBarModel(),
 	}
+	
+#### router
+	在restackx-core/react-native中使用的是NativeRouter，它这是为native提供了相应的路由。
+具体使用说明可参照[NativeRouter](https://reacttraining.com/react-router/native/api/NativeRouter).
+
+#### routes
+在native app中route并不存在，而是通过导航来管理界面。想要是native实现route的功能可使用react-router-native，routes的具体管理：
+	
+	var route = [
+    {
+        "title":"Home",
+        "path":"/",
+    },{
+        "title":"Message",
+        "path":"/Message",
+    }];
+	const Routes = (
+    	<View style={{flex:1}}>
+        	<NavBar />
+       	 <Route exact path={route[0].path} component={HomePage}/>
+        	<Route path={route[1].path} component={Message}/>
+        	<MenuBar routes={route} initRoute={route[0]}/>
+    	</View>
+	);
+
 
 #### 注意:
 使用[MobX](https://mobx.js.org/)需要安装一些 babel 插件，以支持 ES7 的 decorator 特性：
 
-	npm i babel-plugin-transform-decorators-legacy babel-preset-react-native-stage-0 --save-dev`
+	npm i babel-plugin-transform-decorators-legacy babel-preset-react-native-stage-0 --save-dev
 
-在项目工程的 .babelrc 文件配置 babel 插件：
+在 .babelrc 文件中配置 babel 插件：
+
 				
 	{
  		'presets': ['react-native'],

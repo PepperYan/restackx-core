@@ -1,17 +1,11 @@
 import React, {Component} from 'react';
-
 import NavBar from  './component/NavBar'
-
 import HomePage from './class/home/HomePage';
 import Message from './class/message/Message';
 import Application from './class/application/Application';
 import Personal from './class/personal/Personal';
-
 import MenuBar from './component/MenuBar'
-
 import { NativeRouter, Route, Link} from 'react-router-native';
-
-
 import {View} from 'react-native'
 
 var route = [
