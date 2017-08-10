@@ -19,15 +19,11 @@ npm i 安装依赖
     		"PageModel":new PageModel()
 		}
 		//使用this.context.store.PageModel得到PageModel;	
-2. 为了store的简单使用，可使用demo中定制的store。restackx-core将自动读取后缀名为"store.js"的文件，通过handleModels会返回store.
-
-		import {observable, computed, reaction} from 'mobx'
-		import {handleModels} from 'restackx-core'
-		const modelContext = require.context('../', true, /. store.js$/)
-		var models = handleModels(modelContext)
-		export default models
-
-		
+2. 为了更容易使用，`restackx-cli`生成的脚手架支持后缀匹配, 新建文件取名为 `*.store.js` 即会自动添加进store.
+	```
+		//在页面取值
+		this.context.store.*; //*为store的文件名前缀
+	```		
   			
 #### router
 restackx-core默认使用BrowserRouter,也可更换其它router([react-router-dom的使用](https://reacttraining.com/react-router/web/api/BrowserRouter))。具体替换方法:
