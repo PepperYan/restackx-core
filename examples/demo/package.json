@@ -27,8 +27,9 @@
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-router": "^2.4.0",
-    "restackx-core": "0.0.3"
+    "react-router": "^4.1.0",
+    "react-router-dom":"4.1.2",
+    "restackx-core": "0.2.1"
   },
   "devDependencies": {
     "ansi-to-html-umd": "^0.4.2",
