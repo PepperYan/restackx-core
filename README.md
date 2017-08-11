@@ -68,13 +68,13 @@ restackx-core提供了路由的入口，导入指定路由可方便我们管理,
 [如何搭建react-native工程](https://facebook.github.io/react-native/docs/getting-started.html)
 
 #### store
-	import HomePageModel from './models/HomePage.model';
-	import MenuBarModel from './models/MenuBar.model';
-	//这里添加所要导入的xxx.model.js
-	const store = {
-    	"HomePage" : new HomePageModel(),
-    	"MenuBarModel" : new MenuBarModel(),
+	import Launch from './models/launch.model';
+	const models = {
+   	 "launch" : new Launch(),
+
 	}
+	export default models;
+
 	
 #### router
 	在restackx-core/react-native中使用的是NativeRouter，它这是为native提供了相应的路由。
@@ -83,22 +83,15 @@ restackx-core提供了路由的入口，导入指定路由可方便我们管理,
 #### routes
 在native app中route并不存在，而是通过导航来管理界面。想要是native实现route的功能可使用react-router-native，routes的具体管理：
 	
-	var route = [
-    {
-        "title":"Home",
-        "path":"/",
-    },{
-        "title":"Message",
-        "path":"/Message",
-    }];
 	const Routes = (
-    	<View style={{flex:1}}>
-        	<NavBar />
-       	 <Route exact path={route[0].path} component={HomePage}/>
-        	<Route path={route[1].path} component={Message}/>
-        	<MenuBar routes={route} initRoute={route[0]}/>
-    	</View>
-	);
+    <View style={{flex:1}}>
+        <Switch>
+            <Route exact path="/" component={LaunchPage}/>
+            <Route path="/app" component={App}/>
+            <Route path="/main" component={Main}/>
+        </Switch>
+    </View>
+);
 
 
 #### 注意:
