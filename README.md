@@ -16,7 +16,7 @@ npm i 安装依赖
 自创建store：例如一个model文件（PageModel.js）
 	
 	const store = {
-		"PageModel":new PageModel()
+	     "PageModel":new PageModel()
 	}
 //使用this.context.store.PageModel得到PageModel;	
 为了store的简单使用，可使用demo中定制的store。restackx-core将自动读取后缀名为"store.js"的文件，通过handleModels会返回store.
