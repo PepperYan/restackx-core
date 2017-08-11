@@ -1,4 +1,3 @@
-
 # restackx-core
 
 前端快速开发框架,可适用与web及react-native。
@@ -108,6 +107,7 @@ restackx-core提供了路由的入口，导入指定路由可方便我们管理,
 	npm i babel-plugin-transform-decorators-legacy babel-preset-react-native-stage-0 --save-dev
 
 在 .babelrc 文件中配置 babel 插件：
+
 				
 	{
  		'presets': ['react-native'],
