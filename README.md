@@ -14,7 +14,7 @@ npm i 安装依赖
 ``` 
 #### store
 自创建store：例如一个model文件（PageModel.js）
-		
+	
 	const store = {
 		"PageModel":new PageModel()
 	}
@@ -45,14 +45,14 @@ restackx-core提供了路由的入口，导入指定路由可方便我们管理,
 	import PageTwo from '../modules/demo/Page2'
 
 	export default (
-    	<Route path="/">
-        	<App>
-            	<Switch>
-                	<Route exact path="/" component={Page1}/>
-                	<Route path="/pagetwo" component={PageTwo}/>
-            	</Switch>
-        	</App>
-    	</Route>
+    		<Route path="/">
+        		<App>
+				<Switch>
+                			<Route exact path="/" component={Page1}/>
+                			<Route path="/pagetwo" component={PageTwo}/>
+            			</Switch>
+        		</App>
+    		</Route>
 	);
 
 
