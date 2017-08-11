@@ -13,13 +13,13 @@ npm i 安装依赖
 如果使用restackx-cli搭建项目，只需restackx run运行。
 ``` 
 #### store
-1. 自创建store：例如一个model文件（PageModel.js）
+自创建store：例如一个model文件（PageModel.js）
 		
 		const store = {
     		"PageModel":new PageModel()
 		}
 		//使用this.context.store.PageModel得到PageModel;	
-2. 为了store的简单使用，可使用demo中定制的store。restackx-core将自动读取后缀名为"store.js"的文件，通过handleModels会返回store.
+为了store的简单使用，可使用demo中定制的store。restackx-core将自动读取后缀名为"store.js"的文件，通过handleModels会返回store.
 
 		import {observable, computed, reaction} from 'mobx'
 		import {handleModels} from 'restackx-core'
@@ -32,7 +32,7 @@ npm i 安装依赖
 #### router
 restackx-core默认使用BrowserRouter,也可更换其它router([react-router-dom的使用](https://reacttraining.com/react-router/web/api/BrowserRouter))。具体替换方法:
 
-	<App store={Store} router={BrowserRouter} routes={routes}/>,
+	<App store={Store} router={BrowserRouter} routes={routes}/>
 	
 #### routes
 restackx-core提供了路由的入口，导入指定路由可方便我们管理,具体事例：
@@ -70,8 +70,7 @@ restackx-core提供了路由的入口，导入指定路由可方便我们管理,
 #### store
 	import Launch from './models/launch.model';
 	const models = {
-   	 "launch" : new Launch(),
-
+   	 	"launch" : new Launch(),
 	}
 	export default models;
 	
@@ -88,14 +87,14 @@ restackx-core提供了路由的入口，导入指定路由可方便我们管理,
 在native app中route并不存在，而是通过导航来管理界面。想要是native实现route的功能可使用react-router-native，routes的具体管理：
 	
 	const Routes = (
-    <View style={{flex:1}}>
-        <Switch>
-            <Route exact path="/" component={LaunchPage}/>
-            <Route path="/app" component={App}/>
-            <Route path="/main" component={Main}/>
-        </Switch>
-    </View>
-);
+    	<View style={{flex:1}}>
+       		<Switch>
+          		<Route exact path="/" component={LaunchPage}/>
+          		<Route path="/app" component={App}/>
+          		<Route path="/main" component={Main}/>
+       		</Switch>
+    	</View>
+	);
 
 
 #### 注意:
