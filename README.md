@@ -13,6 +13,7 @@ npm i 安装依赖
 如果使用restackx-cli搭建项目，只需restackx run运行。
 ``` 
 #### store
+
 自创建store：例如一个model文件（PageModel.js）
 
 ```
@@ -32,8 +33,6 @@ const modelContext = require.context('../', true, /. store.js$/)
 var models = handleModels(modelContext)
 export default models
 ```
-
-		
   			
 #### router
 restackx-core默认使用BrowserRouter,也可更换其它router([react-router-dom的使用](https://reacttraining.com/react-router/web/api/BrowserRouter))。具体替换方法:
