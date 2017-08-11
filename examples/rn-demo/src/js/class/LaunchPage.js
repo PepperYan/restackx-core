@@ -4,7 +4,7 @@
  * @flow
  */
 
-import React, {PropTypes,Component} from 'react';
+import React, {PropTypes, Component} from 'react';
 import {observable, computed, reaction} from 'mobx'
 import {observer} from "mobx-react";
 import {BaseComponent} from "restackx-core/lib/native";
@@ -16,7 +16,7 @@ import {
     Image,
     TouchableOpacity
 } from 'react-native';
-import { Link} from 'react-router-native';
+import {Link} from 'react-router-native';
 
 
 @observer
@@ -25,10 +25,12 @@ class LaunchPage extends BaseComponent {
     componentWillMount() {
 
     }
+
     componentDidMount() {
         // this.context.store.launch.launchActionHandle();
         // console.log(this.context.store.launch.user);
     }
+
     render() {
 
         return (
@@ -39,9 +41,11 @@ class LaunchPage extends BaseComponent {
                     <Link to={'/main'} replace={true} component={TouchableOpacity}>
                         <Text style={styles.simpleLink}>link the simple</Text>
                     </Link>
-                    <View style={{marginTop:35}}>
-                        <TouchableOpacity onPress={()=>{this.props.history.push('/app')}}>
-                            <Text style={styles.open} >Open Your's App</Text>
+                    <View style={{marginTop: 35}}>
+                        <TouchableOpacity onPress={() => {
+                            this.props.history.push('/app')
+                        }}>
+                            <Text style={styles.open}>Open Your's App</Text>
                         </TouchableOpacity>
                     </View>
 
@@ -49,7 +53,8 @@ class LaunchPage extends BaseComponent {
                 </View>
 
             </View>
-        );s
+        );
+        s
     }
 }
 
@@ -60,30 +65,30 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#ffffff',
     },
-    content:{
+    content: {
         alignItems: 'center',
         backgroundColor: '#ffffff',
-        marginTop:150
+        marginTop: 150
 
     },
     logo: {
         // width:80,
-        height:60,
-        resizeMode : Image.resizeMode.center
+        height: 60,
+        resizeMode: Image.resizeMode.center
     },
     instructions: {
         color: '#2c2c2c',
         textAlign: 'center',
-        marginTop:35
+        marginTop: 35
 
     },
-    simpleLink:{
+    simpleLink: {
         color: '#1781ff',
         textAlign: 'center',
-        marginTop:15,
-        textDecorationLine:'underline'
+        marginTop: 15,
+        textDecorationLine: 'underline'
     },
-    open:{
+    open: {
         color: '#1781ff',
         textAlign: 'center',
     }
