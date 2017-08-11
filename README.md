@@ -74,6 +74,10 @@ restackx-core提供了路由的入口，导入指定路由可方便我们管理,
 
 	}
 	export default models;
+	
+调用方法：this.context.store.launch获取Launch 对象。
+
+
 
 	
 #### router
