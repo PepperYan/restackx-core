@@ -12,26 +12,20 @@ import {observer} from "mobx-react";
 import {
     StyleSheet,
     Text,
-    View
+    View,
+    Button
 } from 'react-native';
 
 @observer
 class NavBar extends BaseComponent {
-    @observable title;
-
     componentWillMount() {
-        let manager = this.context.store.MenuBarModel;
-        autorun(
-            ()=>{
-                this.title = manager.route.title;
-            }
-        );
 
     }
     render() {
         return (
             <View style={styles.navContainer}>
-                <Text style={styles.title}>{this.title}</Text>
+                <Text style={styles.title}>{this.props.title}</Text>
+
             </View>
         );
     }
@@ -39,12 +33,9 @@ class NavBar extends BaseComponent {
 
 const styles = StyleSheet.create({
     navContainer: {
-
         height: 60,
         justifyContent: 'center',
         alignItems: 'center',
-
-
         flexDirection:'row',
         backgroundColor: '#ffffff',
         shadowOpacity:0.3,
@@ -53,8 +44,9 @@ const styles = StyleSheet.create({
     },
     title:{
         fontSize:17,
-        color:"#3768ff"
-
+        fontWeight:('bold'),
+        color:"#272727",
+        marginTop:10,
     },
     left:{
 
@@ -63,5 +55,7 @@ const styles = StyleSheet.create({
 
     }
 });
-
+NavBar.prototypes = {
+    title: PropTypes.string
+}
 export default NavBar;

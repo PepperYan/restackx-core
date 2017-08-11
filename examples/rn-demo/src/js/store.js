@@ -1,15 +1,12 @@
 // import {observable, computed, reaction} from 'mobx'
 // import {handleModels} from './src/native'
-import HomePageModel from './models/HomePage.model'
-import MenuBarModel from './models/MenuBar.model'
-
 // const modelContext = require.context('../', true, /.model.js$/)
 // var models = handleModels(modelContext)
-models = {
-    "HomePage" : new HomePageModel(),
-    "MenuBarModel" : new MenuBarModel(),
+
+
+import Launch from './models/launch.model';
+const models = {
+    "launch" : new Launch(),
 
 }
-// const
-
-export default models
+export default models;
