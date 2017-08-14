@@ -5,8 +5,9 @@
 
 
 import Launch from './models/launch.model';
-const models = {
-    "launch" : new Launch(),
 
+const models = {
+    "launch": new Launch(),
 }
 export default models;
+    
