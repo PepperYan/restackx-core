@@ -1,4 +1,4 @@
-# restackx-core
+# restackx-core (Deprecated)
 
 前端快速开发框架,可适用与web及react-native。
 
